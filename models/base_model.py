@@ -17,7 +17,7 @@ class BaseModel:
             * args : Unused
             **kwargs (dict): key/value pairs of attributes
         """
-        tform = "%A %d %B %Y at %H:%M:%S"
+        tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.updated_at = datetime.now()
