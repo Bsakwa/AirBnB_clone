@@ -19,23 +19,20 @@ class BaseModel:
         """
         tform = "%Y-%m-%dT%H:%M:%S.%f"
         self.id = str(uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = datetime.now()
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
         if len(kwargs) != 0:
             for key, val in kwargs.items():
                 if key == "created_at" or key == "updated_at":
                     self.__dict__[key] = datetime.strptime(val, tform)
                 else:
-                    self__dict__[key] = val
-        else:
-            models.storage.new(self)
+                    self.__dict__[key] = val
 
     def save(self):
         """Save update_at with the current date time"""
-        self.updated_at = datetime.now
-        models.storage.save()
+        self.updated_at = datetime.today()
 
-    def to_json(self):
+    def to_dict(self):
         """ Returns the dictionary of our BaseModel instance
 
         Returns the key/value pair __class__ that represents
@@ -44,7 +41,7 @@ class BaseModel:
         """
         my_dict = self.__dict__.copy()
         my_dict["created_at"] = self.created_at.isoformat()
-        my_dict["updated_at"] = self.updated_at.isoformat()
+        my_dict['updated_at'] = self.updated_at.isoformat()
         my_dict["__class__"] = self.__class__.__name__
         return my_dict
 
