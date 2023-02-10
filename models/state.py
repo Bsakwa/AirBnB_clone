@@ -2,7 +2,7 @@
 
 # Author: Brian Sakwa
 """ Defines a State Class"""
-from models.base_models import BaseModel
+from models.base_model import BaseModel
 
 
 class State(BaseModel):

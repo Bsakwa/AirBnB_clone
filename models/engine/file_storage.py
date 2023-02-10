@@ -31,19 +31,19 @@ class FileStorage:
     def new(self, obj):
         """Sets in __objects the obj"""
         oname = obj.__class__.__name__
-        Filestorage.__objects["{}.{}".format(oname, obj.id)] = obj
+        FileStorage.__objects["{}.{}".format(oname, obj.id)] = obj
 
     def save(self):
         """Serializes __objects to the JSON file"""
         odict = FileStorage.__objects
         objedict = {obj: odict[obj].to_dict() for obj in odict.keys()}
-        with open(FileStorage._file_path, 'w') as f:
+        with open(FileStorage.__file_path, 'w') as f:
             json.dump(objedict, f)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
         try:
-            with open(self.__file_path) as f:
+            with open(FileStorage.__file_path) as f:
                 objedict = json.load(f)
                 for i in objedict.values():
                     cls_name = i["__class__"]
