@@ -5,7 +5,7 @@
 import models
 from uuid import uuid4
 from datetime import datetime
-
+from models import storage
 
 class BaseModel:
     """ Represents the BaseModel of the AirBnb clone project"""
@@ -27,10 +27,13 @@ class BaseModel:
                     self.__dict__[key] = datetime.strptime(val, tform)
                 else:
                     self.__dict__[key] = val
+        else:
+            models.storage.new(self)
 
     def save(self):
         """Save update_at with the current date time"""
         self.updated_at = datetime.today()
+        models.storage.save()
 
     def to_dict(self):
         """ Returns the dictionary of our BaseModel instance
