@@ -84,7 +84,7 @@ class HBNBCommand(cmd.Cmd):
         elif argl[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
         else:
-            print(eval(argl[0]).id)
+            print(eval(argl[0])().id)
             storage.save()
 
     def do_show(self, arg):
@@ -112,7 +112,7 @@ class HBNBCommand(cmd.Cmd):
         Deletes an instance based on class name and id
         Saves the change into the JSON file
         """
-        argsl = parse_line(arg)
+        argl = parse_line(arg)
         objedict = storage.all()
         if len(argl) == 0:
             print("** class name missing **")
@@ -125,6 +125,23 @@ class HBNBCommand(cmd.Cmd):
         else:
             del objedict["{}.{}".format(argl[0], argl[1])]
             storage.save()
+
+    def do_all(self, arg):
+        """
+        Usage: all or all <class>
+        Prints all string representation of all instances
+        """
+        argl = parse_line(arg)
+        if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
+            print("** class doesn't exist **")
+        else:
+            objectl = []
+            for obj in storage.all().values():
+                if len(argl) > 0 and argl[0] == obj.__class__.__name__:
+                    objectl.append(obj.__str__())
+                elif len(argl) == 0:
+                    objectl.append(obj.__str__())
+            print(objectl)
 
 
 if __name__ == '__main__':
