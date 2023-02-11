@@ -131,6 +131,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: all or all <class>
         Prints all string representation of all instances
         """
+        self.non_interactive_check()
         argl = parse_line(arg)
         if len(argl) > 0 and argl[0] not in HBNBCommand.__classes:
             print("** class doesn't exist **")
