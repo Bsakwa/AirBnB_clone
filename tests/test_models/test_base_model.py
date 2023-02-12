@@ -63,6 +63,14 @@ class TestBModel_instantiation(unittest.TestCase):
         self.assertIn("'created_at': " + dt_repr, bmstr)
         self.assertIn("'updated_at': " + dt_repr, bmstr)
 
+    def test_instantiation_with_kwargs(self):
+        dt = datetime.today()
+        dt_iso = dt.isoformat()
+        bm = BaseModel(id="345", created_at=dt_iso, updated_at=dt_iso)
+        self.assertEqual(bm.id, "345")
+        self.assertEqual(bm.created_at, dt)
+        self.assertEqual(bm.updated_at, dt)
+
 
 class TestBaseModel_save(unittest.TestCase):
     """Unittests for testing save method of the BaseModel class."""
@@ -118,7 +126,13 @@ class TestBaseModel_to_dict(unittest.TestCase):
             'created_at': dt.isoformat(),
             'updated_at': dt.isoformat()
         }
-         self.assertDictEqual(bm.to_dict(), tdict)
+        self.assertDictEqual(bm.to_dict(), tdict)
+
+    def test_to_dict_datetime_attributes_are_strs(self):
+        bm = BaseModel()
+        bm_dict = bm.to_dict()
+        self.assertEqual(str, type(bm_dict["created_at"]))
+        self.assertEqual(str, type(bm_dict["updated_at"]))
 
 
 if __name__ == '__main__':
