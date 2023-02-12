@@ -118,6 +118,7 @@ class TestBaseModel_to_dict(unittest.TestCase):
             'created_at': dt.isoformat(),
             'updated_at': dt.isoformat()
         }
+         self.assertDictEqual(bm.to_dict(), tdict)
 
 
 if __name__ == '__main__':
