@@ -1,4 +1,4 @@
-# AirBnB clone - The console
+# AirBnB clone - The console :computer:
 
 This Group Project is part of our portfolio project at ALX x Holberton. The first part of the project required us to create a command interpreter that will manage our AirBnB objects.
 
