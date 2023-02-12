@@ -107,6 +107,18 @@ class TestBaseModel_to_dict(unittest.TestCase):
         self.assertIn("name", bm.to_dict())
         self.assertIn("my_number", bm.to_dict())
 
+    def test_to_dict_output(self):
+        dt = datetime.today()
+        bm = BaseModel()
+        bm.id = "123456"
+        bm.created_at = bm.updated_at = dt
+        tdict = {
+            'id': '123456',
+            '__class__': 'BaseModel',
+            'created_at': dt.isoformat(),
+            'updated_at': dt.isoformat()
+        }
+
 
 if __name__ == '__main__':
     unittest.main()
