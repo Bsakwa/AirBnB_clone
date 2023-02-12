@@ -105,12 +105,24 @@ class HBNBCommand(cmd.Cmd):
         else:
             print(objedict["{}.{}".format(argl[0], argl[1])])
 
+    def do_count(self, arg):
+        """Usage: count <class>
+        Retrieve the number of instances of a given class
+        """
+        argl = parse_line(arg)
+        count = 0
+        for obj in storage.all().values():
+            if argl[0] == obj.__class__.__name__:
+                count += 1
+        print(count)
+
     def do_destroy(self, arg):
         """
         Usage: destroy <class> <id>
         Deletes an instance based on class name and id
         Saves the change into the JSON file
         """
+        self.non_interactive_check()
         argl = parse_line(arg)
         objedict = storage.all()
         if len(argl) == 0:
