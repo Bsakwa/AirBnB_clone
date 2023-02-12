@@ -59,7 +59,40 @@ $ cat test_help | ./console.py
 
 Documented commands (type help <topic>):
 ========================================
-EOF  help  quit
+EOF  all  count  create  destroy  help  quit  show  update
 (hbnb)
 $
 ```
+
+To use the AirBnB console in interactive mode run the executable:
+```
+$ ./console.py
+```
+
+To quit the command interpreter use the `quit` or `EOF` commands
+```
+$ ./console.py
+(hbnb) quit
+$
+```
+```
+$ ./console.py
+(hbnb) EOF
+$
+```
+## Console Commands
+
+Our AirBnB command interpreter supports the following commands as outlined below
+
+* **create**
+	* Usage: `create <class>` : Creates a new instance of the given class, prints outs it's ID and saves it to the file `file.json`
+```
+(hbnb) create BaseModel
+4c0f4d59-d30d-4a92-a9fb-aac6815fe2da
+(hbnb) quit
+
+$ cat file.json ; echo ""
+{"BaseModel.4c0f4d59-d30d-4a92-a9fb-aac6815fe2da": {"id": "4c0f4d59-d30d-4a92-a9fb-aac6815fe2da", "created_at": "2023-02-12T13:14:24.854589", "updated_at": "2023-02-12T13:14:24.854621", "__class__": "BaseModel"}}
+```
+
+
