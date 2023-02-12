@@ -22,6 +22,7 @@ from unittest.mock import patch
 from models.engine.file_storage import FileStorage
 import os
 
+
 class TestConsole_prompt(unittest.TestCase):
     """ Unittests for testing the prompt of our command interpreter"""
 
@@ -63,7 +64,6 @@ class TestConsole_help(unittest.TestCase):
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
             self.assertEqual(prints, output.getvalue().strip())
-
 
 
 if __name__ == '__main__':
