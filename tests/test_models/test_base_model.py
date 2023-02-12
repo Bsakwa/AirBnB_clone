@@ -100,6 +100,13 @@ class TestBaseModel_to_dict(unittest.TestCase):
         self.assertIn("updated_at", bm.to_dict())
         self.assertIn("__class__", bm.to_dict())
 
+     def test_to_dict_contains_added_attributes(self):
+        bm = BaseModel()
+        bm.name = "ALX"
+        bm.my_number = 98
+        self.assertIn("name", bm.to_dict())
+        self.assertIn("my_number", bm.to_dict())
+
 
 if __name__ == '__main__':
     unittest.main()
