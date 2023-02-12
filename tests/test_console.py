@@ -30,9 +30,9 @@ class TestConsole_prompt(unittest.TestCase):
         self.assertEqual("(hbnb)", HBNBCommand.prompt)
 
     def test_empty_line(self):
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd(""))
-            self.assertEqual("", output.getvalue().strip())
+            self.assertEqual("", f.getvalue().strip())
 
 
 class TestConsole_help(unittest.TestCase):
@@ -41,40 +41,40 @@ class TestConsole_help(unittest.TestCase):
 
     def test_help_quit(self):
         prints = "Quit command to exit the interpreter"
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help quit"))
-            self.assertEqual(prints, output.getvalue().strip())
+            self.assertEqual(prints, f.getvalue().strip())
 
     def test_help_create(self):
         prints = ("Usage: create <class>\n        "
                   "Creates a new instance and prints it's id")
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help create"))
-            self.assertEqual(prints, output.getvalue().strip())
+            self.assertEqual(prints, f.getvalue().strip())
 
     def test_help_EOF(self):
         prints = "EOF signal to quit the program"
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help EOF"))
-            self.assertEqual(prints, output.getvalue().strip())
+            self.assertEqual(prints, f.getvalue().strip())
 
     def test_help_show(self):
         prints = ("Usage: show <class> <id>\n        "
                   "Prints the string representation of an instance")
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertFalse(HBNBCommand().onecmd("help show"))
-            self.assertEqual(prints, output.getvalue().strip())
+            self.assertEqual(prints, f.getvalue().strip())
 
 
 class TestConsole_exit(unittest.TestCase):
     """Unittests for the Exit command"""
 
     def test_quit_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertTrue(HBNBCommand().onecmd("quit"))
 
     def test_EOF_exits(self):
-        with patch("sys.stdout", new=StringIO()) as output:
+        with patch("sys.stdout", new=StringIO()) as f:
             self.assertTrue(HBNBCommand().onecmd("EOF"))
 
 
