@@ -74,8 +74,7 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """
         Usage: create <class>
-        Creates a new instance of BaseModel
-        Saves it to the JSON file
+        Creates a new instance and prints it's id
         """
         self.non_interactive_check()
         argl = parse_line(arg)
