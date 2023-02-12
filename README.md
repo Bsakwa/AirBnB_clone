@@ -10,7 +10,7 @@ Our command Interpreter should be able to perform the following operations:
 	* Update attributes of an object
 	* Destroy an object
 
-## Learning Objectives
+## Learning Objectives :heavy_tick:
 ```
 * How to create a Python package
 * How to create a command interpreter in Python using the cmd module
