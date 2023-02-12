@@ -66,5 +66,17 @@ class TestConsole_help(unittest.TestCase):
             self.assertEqual(prints, output.getvalue().strip())
 
 
+class TestConsole_exit(unittest.TestCase):
+    """Unittests for the Exit command"""
+
+    def test_quit_exits(self):
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertTrue(HBNBCommand().onecmd("quit"))
+
+    def test_EOF_exits(self):
+        with patch("sys.stdout", new=StringIO()) as output:
+            self.assertTrue(HBNBCommand().onecmd("EOF"))
+
+
 if __name__ == '__main__':
     unittest.main()
