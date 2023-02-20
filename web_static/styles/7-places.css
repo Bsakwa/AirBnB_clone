@@ -1,0 +1,25 @@
+/*
+ * Places Style
+ */
+.places {
+	text-align: center;
+	margin: 0;
+}
+
+.places article {
+	border: 1px solid #ff5a5f;
+	border-radius: 4px;
+	display: inline-block;
+	margin: 20px;
+	padding: 20px;
+	width: 390px;
+	position: relative;
+}
+
+/* Header 1 Style */
+.places h1 {
+	font-size: 30px;
+	font-weight: bold;
+	margin: .67em 0 .67em 0;
+	width: 100%;
+}
