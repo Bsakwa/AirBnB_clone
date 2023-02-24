@@ -8,6 +8,10 @@
 	height: 70px;
 	width: 100%;
 }
+.filters .locations {
+	border-right: #dddddd solid 1px;
+}
+
 
 /* Search Button Style*/
 .filters button {
@@ -35,6 +39,7 @@
 	margin-left: 45px;
 	border-right: 1px solid #DDDDDD;
 	position: relative;
+	z-index: 1;
 }
 
 /* Style for Amenities class */
@@ -44,6 +49,7 @@
 	display: inline-block;
 	margin-left: 45px;
 	position: relative;
+	z-index: 1;
 }
 
 /* PopOver Style */
@@ -67,9 +73,9 @@
 	margin: 10px 0px 0px 30px;
 }
 
-.locations:hover .popover {display: inline-block;}
+.filters .locations:hover .popover {display: block;}
 
-.amenities:hover .popover {display: inline-block;}
+.filters .amenities:hover .popover {display: block;}
 
 
 /* ul and li Style */
