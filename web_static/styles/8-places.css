@@ -79,21 +79,21 @@ div .information {
 	text-align: center;
 }
 
-div .max_guest {
+div .b1 {
 	background: url("../images/icon_group.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 50px;
 }
 
-div .number_rooms {
+div .b2 {
 	background: url("../images/icon_bed.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 50px;
 }
 
-div .number_bathrooms {
+div .b3 {
 	background: url("../images/icon_bath.png");
 	background-repeat: no-repeat;
 	background-position: center;
